@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Search Task Manager</title>
+<link rel="stylesheet" href="Style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>Job Search Task Manager</h1>
+  <p class="sub">Track applications, follow-ups, interview prep and skill building in one place.</p>
+
+  <div class="stats">
+    <div class="panel stat"><b id="sTotal">0</b><span>Total tasks</span></div>
+    <div class="panel stat"><b id="sDone">0</b><span>Completed</span></div>
+    <div class="panel stat"><b id="sDue">0</b><span>Due today or overdue</span></div>
+    <div class="panel stat"><b id="sPct">0%</b><span>Progress</span><div class="bar"><i id="bar"></i></div></div>
+  </div>
+
+  <section class="panel" aria-label="Add task">
+    <form id="form">
+      <div class="full"><label for="title">Task</label>
+        <input id="title" required maxlength="120" placeholder="e.g. Apply to Frontend Developer role"></div>
+      <div class="half"><label for="company">Company (optional)</label>
+        <input id="company" maxlength="60" placeholder="e.g. Infosys"></div>
+      <div class="half"><label for="category">Category</label>
+        <select id="category">
+          <option>Apply</option><option>Follow-up</option><option>Interview prep</option>
+          <option>Networking</option><option>Skill building</option><option>Resume &amp; portfolio</option>
+        </select></div>
+      <div class="third"><label for="due">Due date</label><input id="due" type="date"></div>
+      <div class="third"><label for="priority">Priority</label>
+        <select id="priority"><option>High</option><option selected>Medium</option><option>Low</option></select></div>
+      <div class="third"><label for="link">Job link (optional)</label><input id="link" type="url" placeholder="https://"></div>
+      <div class="full"><label for="notes">Notes</label>
+        <textarea id="notes" rows="2" maxlength="300" placeholder="Contact name, salary range, questions to ask..."></textarea></div>
+      <div class="full"><button class="primary" id="submitBtn">Add task</button>
+        <button type="button" id="cancelBtn" hidden>Cancel edit</button></div>
+    </form>
+  </section>
+
+  <section class="panel" aria-label="Tasks">
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search tasks or companies" aria-label="Search">
+      <select id="fCategory" aria-label="Filter by category"><option value="">All categories</option></select>
+      <select id="fStatus" aria-label="Filter by status">
+        <option value="">All</option><option value="open">Open</option><option value="done">Completed</option>
+      </select>
+      <select id="sort" aria-label="Sort">
+        <option value="due">Sort: due date</option><option value="priority">Sort: priority</option><option value="new">Sort: newest</option>
+      </select>
+      <button id="clearDone">Clear completed</button>
+    </div>
+    <ul id="list"></ul>
+  </section>
+</div>
+
+<script src="Script.js"></script>
+</body>
+</html>
